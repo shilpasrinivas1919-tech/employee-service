@@ -1,0 +1,76 @@
+{
+  "info": {
+    "name": "Employee Service",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    }
+  ],
+  "item": [
+    {
+      "name": "Search employees",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/employees?keyword=a&page=0&size=10"
+      }
+    },
+    {
+      "name": "Get employee",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/employees/1"
+      }
+    },
+    {
+      "name": "Create employee",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"John Tan\",\n  \"email\": \"john.tan@example.com\",\n  \"salary\": 6800,\n  \"departmentId\": 1\n}"
+        },
+        "url": "{{baseUrl}}/api/employees"
+      }
+    },
+    {
+      "name": "Update employee",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"John Tan Updated\",\n  \"email\": \"john.tan@example.com\",\n  \"salary\": 7200,\n  \"departmentId\": 2\n}"
+        },
+        "url": "{{baseUrl}}/api/employees/1"
+      }
+    },
+    {
+      "name": "Delete employee",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/api/employees/3"
+      }
+    },
+    {
+      "name": "External API",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/external/todo"
+      }
+    }
+  ]
+}
